@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MillionaireQuiz.Entities;
 using MillionaireQuiz.Repositories.AnswerRepository;
 using MillionaireQuiz.Repositories.QuestionRepository;
+using MillionaireQuiz.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IAnswerRepository, AnswerRepository>();
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
+builder.Services.AddTransient<IQuizService, QuizService>();
 
 builder.Services.AddDbContext<QuizDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("QuizConnectionString")));
 
