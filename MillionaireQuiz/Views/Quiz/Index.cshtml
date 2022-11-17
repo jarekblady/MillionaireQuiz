@@ -1,0 +1,62 @@
+﻿@model MillionaireQuiz.Models.QuestionViewModel
+@{
+    ViewData["Title"] = "Questions";
+}
+
+
+<div class="text-center">
+    <div class="row">
+        @using (Html.BeginForm("Index", "Quiz", FormMethod.Post))
+        {
+            <h2>
+                <input type="hidden" value="@Model.NumberQuestion" name="NumberQuestion" />
+                <label for="NumberQuestion" name="NumberQuestion">This is your @Model.NumberQuestion question</label>
+            </h2>
+            <br />
+            <h2>
+                <input type="hidden" value="@Model.RewardQuestion" name="RewardQuestion" />
+                <label for="RewardQuestion" name="RewardQuestion">Reward for the correct answer: @Model.RewardQuestion $</label>
+            </h2>
+            <br />
+            <h2>
+                <input type="hidden" value="@Model.RewardCurrent" name="RewardCurrent" />
+                <label for="RewardCurrent" name="RewardCurrent">Current Reward: @Model.RewardCurrent $</label>
+            </h2>
+            <br />
+            <h2>
+                <input type="hidden" value="@Model.Question" name="Question" />
+                <label for="Question" name="Question">@Model.Question</label>
+            </h2>
+            <br />
+            <div class="row-cols-lg-2">
+                <input type="hidden" value="@Model.AnswerA" name="AnswerA" />
+                <button type="submit" class="btn btn-secondary" id="AnswerA" value=@Model.AnswerA name="selectAnswer">Answer A: @Model.AnswerA </button>
+            </div>
+            <br />
+            <div class="row-cols-lg-2">
+                <input type="hidden" value="@Model.AnswerB" name="AnswerB" />
+                <button type="submit" class="btn btn-secondary" id="AnswerB" value=@Model.AnswerB name="selectAnswer">Answer B: @Model.AnswerB</button>
+            </div>
+            <br />
+            <div class="row-cols-lg-2">
+                <input type="hidden" value="@Model.AnswerC" name="AnswerC" />
+                <button type="submit" class="btn btn-secondary" id="AnswerC" value=@Model.AnswerC name="selectAnswer">Answer C: @Model.AnswerC</button>
+            </div>
+            <br />
+            <div class="row-cols-lg-2">
+                <input type="hidden" value="@Model.AnswerD" name="AnswerD" />
+                <button type="submit" class="btn btn-secondary" id="AnswerD" value=@Model.AnswerD name="selectAnswer">Answer D: @Model.AnswerD</button>
+            </div>
+            <br /> 
+
+        }
+               @using (Html.BeginForm("Finish", "Quiz", FormMethod.Post))
+        {
+         <div class="row-cols-lg-4">
+            <input type="hidden" value="@Model.RewardCurrent" name="RewardCurrent" />
+            <button type="submit" class="btn btn-success" id="RewardCurrent" value=@Model.RewardCurrent name="RewardCurrent">Finish Quiz</button>
+        </div>
+        }
+       
+    </div>
+</div>
